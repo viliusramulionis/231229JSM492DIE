@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+    <style>
+        table {
+            /* rgb(), hex */
+            /* border savybei perduodamos trys reikšmės: storis, stilius ir spalva */
+            /* border savybė apgliaubia elementą kraštine iš visų keturių pusių */
+            /* border: 1px solid black; */
+
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+            /* tarpelių tarp stulelių ir eilučių panaikinimui */
+            border-collapse: collapse;
+        }
+
+        th {
+            /* 
+                border-top (viršus)
+                border-left (kairė)
+                border-right (dešinė)
+                border-bottom (apačia)
+            */
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            
+            /* fono spalvai priskirti */
+            background-color:aqua;
+        }
+
+        td {
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        /* klasės selektorius */
+        .pastorinimas {
+            /* nurodome šrifto pastorinimą */
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- table elementas nurodo lentelę -->
+    <table>
+        <!-- Lentelės antraštė -->
+        <thead>
+            <tr>
+                <!-- table heading -->
+                <th>#</th>
+                <th>Produktas</th>
+                <th>Kiekis</th>
+            </tr>
+        </thead>
+        <!-- Lentelės turinys -->
+        <tbody>
+            <!-- table row (lentelės eilutė) -->
+            <tr>
+                <!-- table data -->
+                <td>1</td>
+                <td>Televizorius</td>
+                <td>15</td>
+            </tr>
+            <tr>
+                <!-- table data -->
+                <td>2</td>
+                <td>Kompiuteris</td>
+                <td>2</td>
+            </tr>
+        </tbody>
+        <!-- Lentelės pabaiga -->
+        <!-- <tfoot></tfoot> -->
+    </table>
+
+    <table class="pastorinimas">
+        <tbody>
+            <tr>
+                <!-- colspan nurodo per kiek stulpelių turėtų būti ištemptas pasirinktas stulpelis -->
+                <td colspan="2">1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <!-- rowspan atlieka tą patį tik su eilutėmis -->
+                <td rowspan="2">7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
