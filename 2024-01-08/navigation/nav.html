@@ -41,9 +41,9 @@
             color: red;
         }
 
-        nav a:visited {
+        /* nav a:visited {
             color: yellow;
-        }
+        } */
 
         header {
             display: flex;
@@ -59,7 +59,7 @@
 
         /* ID atributo selektorius */
         #home {
-            background-color: tomato;
+            background: url(https://wallpapers.com/images/featured/cat-g9rdx9uk2425fip2.jpg) no-repeat center center;
         }
 
         #about {
@@ -77,6 +77,16 @@
         #contacts {
             background-color: rgb(0, 110, 255);
         }
+
+        .container {
+            max-width: 1140px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            padding: 50px 0;
+            gap: 50px;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -93,7 +103,17 @@
         </nav>
     </header>
     <main>
-        <section id="home"></section>
+        <section id="home">
+            <div class="container">
+                <div class="left">
+                    <img src="https://play-lh.googleusercontent.com/phUhJzNvyZTpbUhQmN3oaj0bHL0pQ_tOeBLjlF_l9z8qK7zogZbYO0ttd3jTGTHdAQ">
+                </div>
+                <div class="right">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, illum?</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro deleniti quo quos fuga, consequatur officia doloribus sequi quasi delectus ullam.</p>
+                </div>
+            </div>
+        </section>
         <section id="about"></section>
         <section id="history"></section>
         <section id="career"></section>
