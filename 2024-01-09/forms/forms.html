@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <style>
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+        
+        input {
+            display: block;
+            width: 200px;
+            border: 1px solid rgb(185, 185, 185);
+            padding: 10px 20px;
+            background-color: azure;
+        }
+
+        /* Selektorius skirtas norint išfiltruoti elementą pagal atributą IR jo reikšmę */
+        input[type="checkbox"] {
+            width: unset;
+            display: inline;
+        }
+
+        input[type="radio"] {
+            width: unset;
+            display: inline;
+        }
+
+        select {
+            width: 100%;
+            border: 1px solid rgb(185, 185, 185);
+            padding: 10px 20px;
+            background-color: azure;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Formos elementas nėra privalomas laukeliams atvaizduoti, tačiau turi savo unikalų funkcionalumą ir atributus -->
+    <form>
+        <!-- input = laukelis -->
+        <!-- type atributas nurodo laukelio turinio tipą -->
+        <!-- text = tekstinis laukelis priimantis visus simbolius -->
+        <div>
+            <input type="text">
+        </div>
+        <div>
+            <!-- label elementas skirtas nurodyti laukelio turinį vartotojui -->
+            <label>Jūsų vardas:</label>
+            <input type="text">
+        </div>
+        <div>
+            <!-- placeholder atributas yra išnykstantis tekstas iš laukelio vidaus pradedant jame rašyti tekstą -->
+            <label>Jūsų vardas:</label>
+            <input type="text" placeholder="Vardenis pavardenis">
+        </div>
+        <div>
+            <!-- password tipas, paslepia vedamą tekstą -->
+            <label>Slaptažodis</label>
+            <input type="password">
+        </div>
+        <div>
+            <label>Jūsų amžius</label>
+            <input type="number">
+        </div>
+        <div>
+            <label>Pasirinkite spalvą</label>
+            <input type="color">
+        </div>
+        <div>
+            <label>Pasirinkite spalvą iš sąrašo:</label>
+            <input type="color" list="spalvos">
+            <datalist id="spalvos">
+                <option value="#212529">Pirma</option>
+                <option value="#f1f1f1">Antra</option>
+            </datalist>
+        </div>
+        <div>
+            <label>Datos pasirinkimas</label>
+            <input type="date">
+        </div>
+        <div>
+            <label>Datos ir laiko pasirinkimas</label>
+            <input type="datetime-local">
+        </div>
+        <div>
+            <label>Failo pasirinkimas</label>
+            <input type="file">
+        </div>
+        <div>
+            <label>Kelių failų pasirinkimas</label>
+            <input type="file" multiple>
+        </div>
+        <div>
+            <label>Priskirta reikšmė</label>
+            <input type="text" value="Prieš tai buvusi reikšmė">
+        </div>
+        <div>
+            <label>Išjungti laukeliai</label>
+            <input type="text" value="https://google.com" disabled>
+        </div>
+        <div>
+            <label>Neredaguojami laukeliai</label>
+            <input type="text" value="https://google.com" readonly>
+        </div>
+        <div>
+            <label>
+                <input type="checkbox">
+                Sutinku su vartojimo politika
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" id="naujienlaiskis">
+            <label for="naujienlaiskis">Sutinku gauti naujienlaiškį</label>
+        </div>
+        <div>
+            <h4>Pasirinkite jus dominančią temą</h4>
+            <div>
+                <label>
+                    <input type="radio" name="topic">
+                    Sąskaitos
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="topic">
+                    Dakaras
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="topic">
+                    Naujų paslaugų užsakymas
+                </label>
+            </div>
+            <div>
+                <label>
+                    <input type="radio" name="topic">
+                    Atsiliepimai
+                </label>
+            </div>
+        </div>
+        <div>
+            <h4>Pasirinkite paštomatą</h4>
+            <select>
+                <option>Sapiegos 12 Kaunas</option>
+                <option>Ligoninės 14 Klaipėda</option>
+                <option>Konstitucijos pr. 118, Vilnius</option>
+            </select>
+        </div>
+        <div>
+            <label>Jūsų žinutė</label>
+            <textarea></textarea>
+        </div>
+        <div>
+            <button>Siųsti</button>
+        </div>
+    </form>
+</body>
+</html>
