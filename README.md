@@ -1,4 +1,4 @@
-# 231108JSM492VAK Paskaitų medžiaga
+# 231229JSM492DIE Paskaitų medžiaga
 
 <h1>Turinys</h1>
 <h2>2024-01-02</h2>
