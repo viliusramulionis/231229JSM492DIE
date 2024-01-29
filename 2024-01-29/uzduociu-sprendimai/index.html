@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Užduočių sprendimai</title>
+</head>
+<body>
+    <script>
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // Sukurkite 4 kintamuosius, kurie saugotų jūsų vardą, pavardę, gimimo metus ir šiuos metus (nebūtinai tikrus). 
+        // Parašykite kodą, kuris pagal gimimo metus paskaičiuotų jūsų amžių ir naudodamas vardo ir pavardės kintamuosius 
+        // |atspausdintų tokį sakinį :
+        // "Aš esu Vardenis Pavardenis. Man yra XX metai(ų)".
+
+        document.write('<h2>Pirmoji užduotis</h2>');
+
+        let vardas = 'Vilius';
+        let pavarde = 'Ramulionis';
+        let gimtadienis = 1950;
+        let metai = 2024;
+        // let result = metai - gimtadienis;
+        
+        document.write(`Aš esu ${vardas} ${pavarde}. Man yra ${metai - gimtadienis} metai(ų)`);
+    
+        //Naudokite funkcija rand(). Sukurkite du kintamuosius ir naudodamiesi funkcija rand() 
+        //jiems priskirkite atsitiktines reikšmes nuo 0 iki 4. Didesnę reikšmę padalinkite iš 
+        //mažesnės. Atspausdinkite rezultatą naršyklėje. 
+        // Papildomai:
+        // Suapvalinkite skaičių iki dviejų skaičių po kablelio.
+
+        document.write('<h2>Antroji užduotis</h2>');
+
+        let pirmas = rand(0, 4);
+        let antras = rand(0, 4);
+        
+        document.write(`<p>Gautos reikšmės: ${pirmas} ${antras}</p>`);
+
+        // Pirmas scenarijus: Pirmas skaičius didesnis už antrą
+        // Antras scenarijus: Skaičiai yra lygūs
+        // Trečias scenarijus: Antras didesnis už pirmą
+
+        if(pirmas > antras) {
+            if(antras === 0) {
+                document.write(`<p>Dalyba iš nulio negalima</p>`);
+            } else {
+                document.write(`<p>Rezultatas: ${(pirmas / antras).toFixed(2)}</p>`);
+            }
+        } else if(pirmas === antras) {
+            document.write(`<p>Skaičiai yra lygūs</p>`);
+        } else {
+            if(pirmas === 0) {
+                document.write(`<p>Rezultatas: 0</p>`);
+            } else {
+                document.write(`<p>Rezultatas: ${(antras / pirmas).toFixed(2)}</p>`);
+            }
+        }
+
+        document.write('<h2>Trečioji užduotis</h2>');
+        // Sukurkite tris kintamuosius ir naudodamiesi funkcija rand() jiems priskirkite 
+        //atsitiktines reikšmes nuo 0 iki 25. Raskite ir atspausdinkite kintamąjį turintį 
+        //vidurinę reikšmę.
+
+        let pirmasSkaicius = rand(0, 25);
+        let antrasSkaicius = rand(0, 25);
+        let treciasSkaicius = rand(0, 25);
+
+        console.log('Gautos reikšmės:', pirmasSkaicius, antrasSkaicius, treciasSkaicius);
+        
+        // let pirmasSkaicius = 11;
+        // let antrasSkaicius = 19;
+        // let treciasSkaicius = 2;
+
+        if(pirmasSkaicius <= antrasSkaicius) {
+            // Antras skaicius didesnis nei pirmas
+            if(antrasSkaicius <= treciasSkaicius) {
+                document.write('<h3>Antras skaičius yra vidurinis</h3>');
+            } else {
+                // Antras skaicius yra didesnis nei trecias
+                if(pirmasSkaicius <= treciasSkaicius) {
+                    document.write('<h3>Trecias skaičius yra vidurinis</h3>');
+                } else {
+                    document.write('<h3>Pirmas skaičius yra vidurinis</h3>');
+                }
+            }
+        } else {
+            // Pirmas skaicius didesnis nei antras
+            if(pirmasSkaicius <= treciasSkaicius) {
+                document.write('<h3>Pirmas skaičius yra vidurinis</h3>');
+            } else {
+                document.write('<h3>Antras skaičius yra vidurinis</h3>');
+            }
+        }
+
+    </script>
+</body>
+</html>
