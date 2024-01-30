@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stringai</title>
+</head>
+
+<body>
+    <script>
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        console.log('--------------PENKTA UŽDUOTIS--------------------');
+
+        // Sukurti kintamąjį su stringu: “An American in Paris”. 
+        // Jame visas “a” (didžiąsias ir mažąsias) pakeisti žvaigždutėm “*”.  
+        // Rezultatą atspausdinti.
+        // Rezultatas: *n *meric*n in P*ris
+
+        let string = 'An American in Paris';
+
+        // string = string.replaceAll('A', '*').replaceAll('a', '*');
+        // string = string.replaceAll('a', '*');
+
+        string = string.replaceAll(/[a]/gi, '*');
+        // g = global
+        // i = case insensitive, ignoruojamas skirtumas tarp didžiųjų ir mažųjų raidžių
+        // - = range (nuo iki ik)
+        // [] = nurodant ne specifinę kombinaciją
+
+        console.log(string);
+
+        console.log('--------------AŠTUNTA UŽDUOTIS--------------------');
+
+        // Stringe, kurį generuoja toks kodas: `Star Wars: Episode ${rand(0,5)} ${rand(1,9)} - A New Hope`; 
+        // Surasti ir atspausdinti epizodo numerį.
+
+        string = `Star Wars: Episode ${rand(0, 5)} ${rand(1, 9)} - A New Hope`;
+
+        console.log('Epizodo numeris:', string[19], string[21]);
+
+        // Parašyti kodą, kuris generuotų atsitiktinį stringą iš 
+        // lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
+
+        console.log('--------------DEVINTA UŽDUOTIS--------------------');
+
+        string = 'abcdefghijklmnopqrstuvwxyz';
+
+        console.log(string[rand(0, string.length - 1)] + string[rand(0, string.length - 1)] + string[rand(0, string.length - 1)])
+    </script>
+</body>
+
+</html>
