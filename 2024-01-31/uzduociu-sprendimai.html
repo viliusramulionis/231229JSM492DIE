@@ -93,10 +93,10 @@
             seconds = newSeconds - (addMinutes * 60); 
         }
 
-        let newMinutes = minutes + addMinutes;
+        minutes = minutes + addMinutes;
 
-        if(newMinutes > 59) {
-            minutes = newMinutes - 60;
+        if(minutes > 59) {
+            minutes = minutes - 60;
             hours++;
         }
 
