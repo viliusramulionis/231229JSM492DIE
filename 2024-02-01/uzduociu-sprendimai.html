@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Užduočių sprendimai</title>
+</head>
+<body>
+    <script>
+        function rand(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        // Metam monetą. Monetos kritimo rezultatą imituojam rand() funkcija, 
+        // kur 0 yra herbas, o 1 - skaičius. Monetos metimo rezultatus išvedame 
+        // į ekraną atskiroje eilutėje: “S” jeigu iškrito skaičius ir “H” jeigu herbas. 
+        // Suprogramuokite keturis skirtingus scenarijus kai monetos metimą stabdome:
+        // Iškritus herbui;
+        // Tris kartus iškritus herbui;
+        // Tris kartus iš eilės iškritus herbui;
+        
+        document.write('<h2>Monetos a)</h2>');
+        
+        while(true) {
+            let moneta = rand(0, 1);
+
+            if(moneta === 0) {
+                //Herbas
+                document.write('H');
+                break;
+            } else {
+                //Skaičius
+                document.write('S');
+            }
+        }
+
+        document.write('<h2>Monetos b)</h2>');
+
+        let kiekHerbu = 0;
+
+        while(kiekHerbu < 3) {
+            let moneta = rand(0, 1);
+            
+            if(moneta === 0) {
+                //Herbas
+                document.write('H');
+                kiekHerbu++;
+            } else {
+                //Skaičius
+                document.write('S');
+            }
+
+            // if(kiekKartu >= 3)
+            //     break;
+        }
+
+        // console.log(kiekKartu);
+
+        document.write('<h2>Monetos c)</h2>');
+
+        kiekHerbu = 0;
+
+        while(kiekHerbu < 3) {
+            let moneta = rand(0, 1);
+            
+            if(moneta === 0) {
+                //Herbas
+                document.write('H');
+                kiekHerbu++;
+            } else {
+                //Skaičius
+                document.write('S');
+                kiekHerbu = 0;
+            }
+
+            // if(kiekKartu >= 3)
+            //     break;
+        }
+        
+        // Kazys ir Petras žaidžiai šaškėm. Petras surenka taškų kiekį nuo 10 iki 20, 
+        // Kazys surenka taškų kiekį nuo 5 iki 25. Vienoje eilutėje išvesti žaidėjų vardus 
+        // su taškų kiekiu ir “Partiją laimėjo: ​laimėtojo vardas​”. Taškų kiekį generuokite 
+        // funkcija ​rand()​. Žaidimą laimi tas, kas greičiau surenka 222 taškus. 
+        // Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba daugiau taškų.
+
+        document.write('<h2>Šaškės</h2>');
+
+        let petroRezultatas = 0;
+        let kazioRezultatas = 0;
+
+        while(true) {
+            let petras = rand(10, 20);
+            let kazys = rand(5, 25);
+
+            petroRezultatas += petras;
+            kazioRezultatas += kazys;
+
+            console.log(`Partijos taškai: ${petras} ${kazys}`);
+
+            if(petras > kazys) {
+                document.write(`<p>Partiją laimėjo Petras</p>`);
+            } else if(petras === kazys) {
+                document.write(`<p>Įvyko lygiosios</p>`);
+            } else {
+                document.write(`<p>Partiją laimėjo Kazys</p>`);
+            }
+            
+            if(petroRezultatas >= 222 || kazioRezultatas >= 222)
+                break;
+        }
+
+        document.write(`<p>Petro taškai: ${petroRezultatas} Kazio taškai ${kazioRezultatas}</p>`)
+        
+        if(petroRezultatas > kazioRezultatas) {
+            document.write(`<h3>Žaidimą laimėjo Petras</h3>`);
+        } else if(petroRezultatas === kazioRezultatas) {
+            document.write(`<h3>Įvyko lygiosios</h3>`);
+        } else {
+            document.write(`<h3>Žaidimą laimėjo Kazys</h3>`);
+        }
+
+        // Sumodeliuokite vinies kalimą. Įkalimo gylį sumodeliuokite pasinaudodami 
+        // rand() funkcija. Vinies ilgis 8.5cm (pilnai sulenda į lentą).
+
+        // “Įkalkite” 5 vinis mažais smūgiais. Vienas smūgis vinį įkala 5-20 mm. 
+        // Suskaičiuokite kiek reikia smūgių.
+
+        document.write('<h2>Vinys a)</h2>');
+
+        // let vinis = 85;
+        // let smugiai = 0;
+        
+        // for(let i = 0; i < 5; i++) {
+        //     let bendrasGylis = 0;
+
+        //     while(bendrasGylis <= vinis) {
+        //         let ikalimoGylis = rand(5, 20);
+                
+        //         bendrasGylis += ikalimoGylis;
+
+        //         smugiai++;
+        //     }
+        // }
+
+        // Supaprastintas variantas
+        let vinis = 85 * 5;
+        let smugiai = 0;
+        let bendrasGylis = 0;
+
+        while(bendrasGylis <= vinis) {
+            let ikalimoGylis = rand(5, 20);
+            
+            bendrasGylis += ikalimoGylis;
+            
+            smugiai++;
+        }
+
+        document.write(`<p>Viniai įkalti prireikė: ${smugiai} smūgių</p>`);
+
+        document.write('<h2>Vinys b)</h2>');
+
+        //“Įkalkite” 5 vinis dideliais smūgiais. Vienas smūgis vinį įkala 20-30 mm, 
+        //bet yra 50% tikimybė (pasinaudokite rand() funkcija tikimybei sumodeliuoti), 
+        //kad smūgis nepataikys į vinį. Suskaičiuokite kiek reikia smūgių.
+
+        vinis = 85 * 5;
+        smugiai = 0;
+        bendrasGylis = 0;
+
+        let i = 0;
+
+        while(bendrasGylis <= vinis) {
+            // if(i > 100) {
+            //     console.log('Stabdis suveike');
+            //     break;
+            // }
+
+            // i++;
+                
+            smugiai++;
+
+            // 0 = Nepataikymas į vinį
+            if(rand(0, 1) === 0) {
+                console.log('Nepataikėm į vinį');
+                continue; //Perėjimas į sekančią iteraciją
+            }
+                 
+            let ikalimoGylis = rand(20, 30);
+            
+            bendrasGylis += ikalimoGylis;
+        }
+
+        document.write(`<p>Viniai įkalti prireikė: ${smugiai} smūgių</p>`);
+        
+    </script>
+</body>
+</html>
