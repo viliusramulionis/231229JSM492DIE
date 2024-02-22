@@ -42,9 +42,14 @@ const result = data.products.map(value => {
                             <span class="regular-price">&dollar;${value.price}</span>
                         `}
                     </div>
-                    <a href="#" class="btn btn-warning">Add to Cart</a>
+                    <a href="#" class="btn btn-warning" onclick="goToCart()">Add to Cart</a>
                 </div>
             </div>`;
 });
 
 document.querySelector('.result').innerHTML = result.join('');
+
+const goToCart = () => {
+    document.querySelector('.result').style.display = 'none';
+    document.querySelector('.cart').style.display = 'block';
+}
