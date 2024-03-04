@@ -14,6 +14,7 @@ const App = () => {
       <AlternativeButton />
       <Input />
       <IdButtons />
+
     </>
   );
 }
