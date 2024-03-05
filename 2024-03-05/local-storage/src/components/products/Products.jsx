@@ -55,7 +55,7 @@ const Products = () => {
 
         setLoading(!loading);
     }
-    
+
     return (
         <>
             <h1>Products</h1>
@@ -69,8 +69,8 @@ const Products = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map(data => 
-                        <tr>
+                    {products.map((data, index) => 
+                        <tr key={index}>
                             <td>{data.title}</td>
                             <td>
                                 <img src={data.photo} style={{
