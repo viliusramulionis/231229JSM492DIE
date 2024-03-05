@@ -24,18 +24,20 @@ function App() {
     <>
       <h1>Local Storage</h1>
       <div className="my-3">{value}</div>
-      <button 
-        className="btn btn-primary"
-        onClick={setLocalValue}
-      >
-        Set Local Value
-      </button>
-      <button 
-        className="btn btn-primary"
-        onClick={getLocalValue}
-      >
-        Get Local Value
-      </button>
+      <div className="d-flex gap-3 justify-content-center mb-5">
+        <button 
+          className="btn btn-primary"
+          onClick={setLocalValue}
+        >
+          Set Local Value
+        </button>
+        <button 
+          className="btn btn-primary"
+          onClick={getLocalValue}
+        >
+          Get Local Value
+        </button>
+      </div>
       {/* Produktų komponentas */}
       <Products />
     </>
