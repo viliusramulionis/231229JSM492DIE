@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const CreateTask = ({ setReload }) => {
     const [task, setTask] = useState();
-
+    
     const handleSubmit = (e) => {
         // Standartinio veikimo sustabdymas
         e.preventDefault();
