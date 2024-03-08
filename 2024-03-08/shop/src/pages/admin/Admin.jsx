@@ -6,12 +6,15 @@ const Admin = () => {
     const [loader, setLoader] = useState(false);
 
     useEffect(() => {
+        // Paimame produktus iš localStorage
         const localData = JSON.parse(localStorage.getItem('data'));
         
+        // Patikriname ar informacija egzistuoja
         if(localData) 
-            setData(localData);
+            setData(localData); //Priskiriame produktų informaciją prie state'o
     }, [loader]);
 
+    // Ištrynimo funkcija
     const handleDelete = (index) => {
         // Ištrynimas iš masyvo
         data.splice(index, 1);

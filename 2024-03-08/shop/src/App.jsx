@@ -16,6 +16,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Routes>
+          {/* Route'ų (kelių) registravimas */}
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/new-product" element={<NewProduct />} />
