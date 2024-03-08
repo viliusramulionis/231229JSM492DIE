@@ -1,8 +1,21 @@
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const NewProduct = () => {
+const EditProduct = () => {
+    const [form, setForm] = useState({});
+
     // Peradresavimo (redirect) kūrimas
     const navigate = useNavigate();
+    const { indentifikatorius } = useParams();
+
+    useEffect(() => {
+        const localData = JSON.parse(localStorage.getItem('data'));
+
+        if(!localData)
+            return;
+
+        setForm(localData[indentifikatorius]);
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -14,24 +27,22 @@ const NewProduct = () => {
             data[input[0]] = input[1];
         }
 
-        const localData = localStorage.getItem('data');
+        // 1. Paimame duomenis iš localStorage
+        // 2. Konvertuojam duomenis
+        // 3. Redaguojame duomenis
+        // 4. Konvertuojame duomenis iš naujos
+        // 5. Išsaugojame duomenis
+        const localData = JSON.parse(localStorage.getItem('data'));
+        localData[indentifikatorius] = data;
+        localStorage.setItem('data', JSON.stringify(localData));
 
-        if(localData) {
-            let convertedData = JSON.parse(localData);
-            convertedData.push(data);
-            convertedData = JSON.stringify(convertedData);
-            localStorage.setItem('data', convertedData);
-        } else {
-            localStorage.setItem('data', JSON.stringify([data]));
-        }
-        
         // Peradresavimo iniciavimas
         navigate('/admin');
     }
 
     return (
         <>
-            <h1>Naujas Produktas</h1>
+            <h1>Produkto redagavimas</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label>Produkto pavadinimas</label>
@@ -39,6 +50,7 @@ const NewProduct = () => {
                         type="text" 
                         className="form-control" 
                         name="title"
+                        defaultValue={form.title}
                     /> 
                 </div>
                 <div className="mb-3">
@@ -47,6 +59,7 @@ const NewProduct = () => {
                         type="text" 
                         className="form-control" 
                         name="photo"
+                        defaultValue={form.photo}
                     /> 
                 </div>
                 <div className="mb-3">
@@ -55,6 +68,7 @@ const NewProduct = () => {
                         type="number" 
                         className="form-control" 
                         name="price"
+                        defaultValue={form.price}
                     /> 
                 </div>
                 <div className="mb-3">
@@ -63,6 +77,7 @@ const NewProduct = () => {
                         type="number" 
                         className="form-control" 
                         name="qty"
+                        defaultValue={form.qty}
                     /> 
                 </div>
                 <button className="btn btn-primary">Pridėti</button>
@@ -71,4 +86,4 @@ const NewProduct = () => {
     );
 }
 
-export default NewProduct;
+export default EditProduct;
