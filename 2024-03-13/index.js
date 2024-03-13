@@ -19,7 +19,7 @@ app.use(express.urlencoded({
 }));
 
 // Controlerio (Validklis) registravimas
-app.use(user);
+app.use('/users/', user);
 
 // Serverio paleidimas 3000 porte
 app.listen(3000);
