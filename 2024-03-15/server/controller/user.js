@@ -17,6 +17,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', upload.single('nuotrauka'), async (req, res) => {
+    console.log(req.body);
     // Naujo vartotojo sukūrimas
     req.body.photo = req.file?.filename;
 

@@ -10,40 +10,15 @@ const EditProduct = () => {
     const { indentifikatorius } = useParams();
     
     useEffect(() => {
-        // Duomenų iš localStorage paėmimas
-        const localData = JSON.parse(localStorage.getItem('data'));
-
-        // Patikrinimas ar jie buvo priskirti
-        if(!localData)
-            return;
-
-        // Duomenų priskyrimas prie state'o, tam, kad formoje matytume anksčiau buvusias reikšmes
-        setForm(localData[indentifikatorius]);
+        // Vartotojo duomenų paėmimas
     }, []);
 
     // Formos duomenų įrašymas
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Formos duomenų paėmimo pradžia
-        const formData = new FormData(e.target);
-        const data = {};
-
-        for(const input of formData.entries()) {
-            data[input[0]] = input[1];
-        }
-
-        // Formos duomenų paėmimo pabaiga
-
-        // 1. Paimame duomenis iš localStorage
-        // 2. Konvertuojam duomenis
-        // 3. Redaguojame duomenis
-        // 4. Konvertuojame duomenis iš naujos
-        // 5. Išsaugojame duomenis
-        const localData = JSON.parse(localStorage.getItem('data'));
-        localData[indentifikatorius] = data;
-        localStorage.setItem('data', JSON.stringify(localData));
-
+        //Vartotojo iššsaugojimas    
+        
         // Peradresavimo iniciavimas
         navigate('/admin');
     }

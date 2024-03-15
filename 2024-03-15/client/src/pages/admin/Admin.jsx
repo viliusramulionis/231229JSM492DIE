@@ -6,21 +6,37 @@ const Admin = () => {
     const [loader, setLoader] = useState(false);
 
     useEffect(() => {
+        // Duomenų paėmimas iš serverio
        fetch('http://localhost:3000/users')
        .then(resp => resp.json())
+        // Duomenų priskyrimas prie state'o    
        .then(resp => setData(resp));
     }, [loader]);
 
     // Ištrynimo funkcija
-    const handleDelete = (index) => {
+    const handleDelete = (id) => {
+        console.log(id);
 
+        fetch('http://localhost:3000/users/' + id, {
+            method: 'DELETE'
+        })
+        .then(resp => resp.text())
+        .then(resp => {
+            console.log(resp)
+            setLoader(!loader);
+        });
     }   
 
     return (
         <>  
             <div className="d-flex justify-content-between align-items-center">
                 <h2>Admin</h2>
-                <Link to="/admin/new-product" className="btn btn-success">Naujas produktas</Link>
+                <Link 
+                    to="/admin/new-user" 
+                    className="btn btn-success"
+                >
+                    Naujas vartotojas
+                </Link>
             </div>
             <table className="table">
                 <thead>

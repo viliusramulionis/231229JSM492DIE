@@ -8,68 +8,53 @@ const NewProduct = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Duomenų iš formos paėmimo pradžia
-        const formData = new FormData(e.target);
-        const data = {};
-
-        for(const input of formData.entries()) {
-            data[input[0]] = input[1];
-        }
-        // Duomenų iš formos paėmimos pabaiga
-        
-        // Duomenų iš localStorage paėmimas
-        const localData = localStorage.getItem('data');
-
-        // Patikrinimas ar jie egzistuoja
-        if(localData) {
-            // Produkto pridėjimas jau esančiame masyve
-            let convertedData = JSON.parse(localData);
-            convertedData.push(data);
-            convertedData = JSON.stringify(convertedData);
-            localStorage.setItem('data', convertedData);
-        } else {
-            // Produkto pridėjimas naujame masyve
-            localStorage.setItem('data', JSON.stringify([data]));
-        }
-        
-        // Peradresavimo iniciavimas
-        navigate('/admin');
+        // Formos duomenų persiuntimas POST metodu
+        fetch('http://localhost:3000/users/', {
+            method: 'POST',
+            body: new FormData(e.target)
+        })
+        .then(resp => resp.text())
+        .then(resp => {
+            console.log(resp);
+            // Peradresavimo iniciavimas
+            navigate('/admin');
+        });
     }
 
     return (
         <>
-            <h1>Naujas Produktas</h1>
+            <h1>Naujas Vartotojas</h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                    <label>Produkto pavadinimas</label>
+                    <label>Vardas</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        name="title"
+                        name="name"
                     /> 
                 </div>
                 <div className="mb-3">
-                    <label>Produkto nuotrauka</label>
+                    <label>Pavardė</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        name="photo"
+                        name="last_name"
                     /> 
                 </div>
                 <div className="mb-3">
-                    <label>Produkto kaina</label>
+                    <label>El. pašto adresas</label>
                     <input 
-                        type="number" 
+                        type="email" 
                         className="form-control" 
-                        name="price"
+                        name="email"
                     /> 
                 </div>
                 <div className="mb-3">
-                    <label>Kiekis sandėlyje</label>
+                    <label>Slaptažodis</label>
                     <input 
-                        type="number" 
+                        type="password" 
                         className="form-control" 
-                        name="qty"
+                        name="password"
                     /> 
                 </div>
                 <button className="btn btn-primary">Pridėti</button>
