@@ -2,10 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import user from './controller/user.js';
-import fs from 'node:fs';
-import upload from './middleware/multer.js';
 
-console.log(fs.existsSync('./package.json'));
 // MVC:
 // Model - Atsakingas už informacijos paėmimą iš duomenų bazės
 // View  - Atsakingas už iš controlerio gautos informacijos atvaizdavimą
