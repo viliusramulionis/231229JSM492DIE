@@ -1,7 +1,9 @@
 import { Schema, model } from 'mongoose';
+import Like from './like.js';
 
 // ORM - Object Oriented Modeling
-const post = model('Post', new Schema({
+
+const postSchema = new Schema({
     photo: {
         type: String,
         max: 80,
@@ -20,6 +22,15 @@ const post = model('Post', new Schema({
         // Reikšmės pagal nutylėjimą priskyrimas, jei ši nėra siunčiama
         default: new Date()
     }
-}));
+});
+
+postSchema.virtual('likesNum', {
+    ref: 'Like',
+    localField: '_id',
+    foreignField: 'post',
+    count: true
+});
+
+const post = model('Post', postSchema);
 
 export default post;

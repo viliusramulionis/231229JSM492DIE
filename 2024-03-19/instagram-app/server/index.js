@@ -1,14 +1,19 @@
 import express from 'express';
 import session from 'express-session';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import users from './controller/user.js';
 import posts from './controller/post.js';
+import comments from './controller/comment.js';
 
 await mongoose.connect('mongodb://localhost:27017/instagram');
 
 const app = express();
 
 app.set('trust proxy', true);
+
+// CORS apsaugos nuėmimas
+app.use(cors());
 
 // Sesijos sukūrimas
 app.use(session({
@@ -39,5 +44,9 @@ app.get('/', (req, res) => {
 // Kontrolerių registracija
 app.use('/users', users);
 app.use('/posts', posts);
+app.use('/comments', comments);
+
+// Failų atvaizdavimui kreipiantis į route'ą uploads
+app.use('/uploads', express.static('./uploads'));
 
 app.listen(3000);

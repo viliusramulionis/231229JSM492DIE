@@ -5,6 +5,14 @@ import bcrypt from 'bcrypt';
 
 const router = Router();
 
+router.get('/:id', async (req, res) => {
+    try {
+        res.json(await User.findById(req.params.id).select(['user_name', 'photo', 'bio', 'email']));
+    } catch {
+        res.status(500).json('Įvyko klaida');
+    }
+});
+
 router.post('/login', async (req, res) => {
     // Prisijungimui tikimės:
     // Emailo ir slaptažodžio
