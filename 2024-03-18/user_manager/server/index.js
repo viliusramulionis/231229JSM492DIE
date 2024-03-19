@@ -30,9 +30,5 @@ app.use('/files/', express.static('./uploads'));
 // Controlerio (Validklis) registravimas
 app.use('/users/', user);
 
-
-app.post('/test', (req, res) => {
-    console.log(req.rawHeaders);
-});
 // Serverio paleidimas 3000 porte
 app.listen(3000);
