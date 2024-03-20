@@ -38,8 +38,6 @@ const storage = multer.diskStorage({
 
 // Multer modulio iniciavimas
 const upload = multer({
-    // Direktorijos nustatymas kur bus talpinami failai
-    storage: storage,
     fileFilter: (req, file, next) => {
         const formats = [
             'image/jpeg',
@@ -55,7 +53,9 @@ const upload = multer({
     },
     limits: {
         fileSize: 2000000
-    }
+    },
+    // Direktorijos nustatymas kur bus talpinami failai
+    storage: storage
 });
 
 export default upload;
