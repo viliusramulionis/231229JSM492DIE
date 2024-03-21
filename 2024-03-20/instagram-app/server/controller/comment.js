@@ -8,7 +8,7 @@ router.get('/:post_id', async (req, res) => {
     try {
         const data = await Comment.find({ post: req.params.post_id })
                                   .populate('author', ['user_name', 'photo']);
-
+        console.log(data);
         res.json(data);
     } catch {
         res.status(500).json('Įvyko klaida');
@@ -20,7 +20,8 @@ router.post('/', async (req, res) => {
     try {
         await Comment.create(req.body);
         res.json('Įrašas sėkmingai išssaugotas');
-    } catch {
+    } catch(e) {
+        console.log(e);
         // Įvykus klaidai grąžiname klaidos kodą ir žinutę
         res.status(500).json('Įvyko klaida');
     }

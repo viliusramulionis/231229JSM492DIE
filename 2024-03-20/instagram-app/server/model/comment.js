@@ -8,11 +8,11 @@ const comment = model('Comment', new Schema({
     },
     author: {
         type: Schema.Types.ObjectId,
-        refLength: 'User'
+        ref: 'User'
     },
     post: {
         type: Schema.Types.ObjectId,
-        refLength: 'Post'
+        ref: 'Post'
     },
     created_at: {
         type: Date,
